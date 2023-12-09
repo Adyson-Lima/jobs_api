@@ -26,6 +26,11 @@ RSpec.describe Job, type: :model do
       expect(@job).to be_valid
     end
 
+    it 'job invalido com campos obrigatorios não preenchidos?' do
+      job = Job.new
+      expect(job).to be_valid
+    end
+
   end
 
 end
