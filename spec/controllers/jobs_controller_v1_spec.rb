@@ -12,4 +12,12 @@ RSpec.describe Api::V1::JobsController, type: :controller do
     end
   end
 
+  describe 'GET /api/v1/jobs/id' do
+    it 'Consegue listar um job especifico e retornar status 200?' do
+      get :show, params: {id: @job.id}
+      expect(response.body).to include_json(id: @job.id)
+      expect(response).to have_http_status(200)
+    end
+  end
+
 end
