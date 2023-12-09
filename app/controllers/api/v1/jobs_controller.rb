@@ -1,6 +1,6 @@
 class Api::V1::JobsController < ApplicationController
 
-  before_action :set_job, only: %i[show update] #show update destroy
+  before_action :set_job, only: %i[show update destroy] #show update destroy
 
   def index
     @jobs = Job.all 
@@ -26,6 +26,10 @@ class Api::V1::JobsController < ApplicationController
     else
       render json: @job.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @job.destroy!
   end
 
 private
