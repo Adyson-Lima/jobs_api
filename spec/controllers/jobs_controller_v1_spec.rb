@@ -28,4 +28,13 @@ RSpec.describe Api::V1::JobsController, type: :controller do
     end
   end
 
+  describe 'PATCH /api/v1/jobs/id' do
+    it 'Consegue atualizar um job e retornar status 200?' do
+      job = Job.last
+      patch :update, params: {job: {name: 'Rails dev', wage: '5000'}, id: job.id}
+      expect(response.body).to include_json(name: 'Rails dev')
+      expect(response).to have_http_status(200)
+    end
+  end
+
 end
