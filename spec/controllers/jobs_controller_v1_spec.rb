@@ -37,4 +37,13 @@ RSpec.describe Api::V1::JobsController, type: :controller do
     end
   end
 
+  describe 'DELETE /api/v1/jobs/id' do
+    it 'Consegue excluir um job e retornar status 204?' do
+      job = Job.last
+      delete :destroy, params: {id: job.id}
+      expect(Job.all).not_to include(job)
+      expect(response).to have_http_status(204)
+    end
+  end
+
 end
