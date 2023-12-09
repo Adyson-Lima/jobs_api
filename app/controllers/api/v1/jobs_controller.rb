@@ -11,6 +11,15 @@ class Api::V1::JobsController < ApplicationController
     render json: @job
   end
 
+  def create
+    @job = Job.create(job_params)
+    if @job.save
+      render json: @job, status: :created, location: api_v1_job_url(@job)
+    else
+      render json: @job.errors, status: :unprocessable_entity
+    end
+  end
+
 private
 
 def set_job
