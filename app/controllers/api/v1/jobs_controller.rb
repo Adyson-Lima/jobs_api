@@ -1,10 +1,14 @@
 class Api::V1::JobsController < ApplicationController
 
-  #before_action :set_job, only: %i[] #show update destroy
+  before_action :set_job, only: %i[show] #show update destroy
 
   def index
     @jobs = Job.all 
     render json: @jobs
+  end
+
+  def show
+    render json: @job
   end
 
 private
