@@ -7,7 +7,7 @@ RSpec.describe Job, type: :model do
   describe 'Testes de preenchimento do model Job' do
 
     it 'name consegue ser preenchido?' do
-      @job.name = ''
+      @job.name = 'programmer'
       expect(@job.name).to eq('programmer')
     end
 
