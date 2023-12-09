@@ -12,7 +12,7 @@ RSpec.describe Job, type: :model do
     end
 
     it 'wage consegue ser preenchido?' do
-      @job.wage = ''
+      @job.wage = '5000'
       expect(@job.wage).to eq('5000')
     end
 
