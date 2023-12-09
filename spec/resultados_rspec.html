@@ -287,42 +287,69 @@ a {
 <div id="div_group_2" class="example_group passed">
   <dl style="margin-left: 15px;">
   <dt id="example_group_2" class="passed">GET /api/v1/jobs</dt>
-    <script type="text/javascript">moveProgressBar('16.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">Consegue listar todos os jobs e retornar status 200?</span><span class='duration'>0.05993s</span></dd>
+    <script type="text/javascript">moveProgressBar('14.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">Consegue listar todos os jobs e retornar status 200?</span><span class='duration'>0.05414s</span></dd>
   </dl>
 </div>
 <div id="div_group_3" class="example_group passed">
   <dl style="margin-left: 15px;">
   <dt id="example_group_3" class="passed">GET /api/v1/jobs/id</dt>
-    <script type="text/javascript">moveProgressBar('33.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">Consegue listar um job especifico e retornar status 200?</span><span class='duration'>0.00584s</span></dd>
+    <script type="text/javascript">moveProgressBar('28.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">Consegue listar um job especifico e retornar status 200?</span><span class='duration'>0.00683s</span></dd>
   </dl>
 </div>
 <div id="div_group_4" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_4" class="passed">Job</dt>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_4" class="passed">POST /api/v1/jobs</dt>
+    <script type="text/javascript">makeRed('rspec-header');</script>
+    <script type="text/javascript">makeRed('div_group_4');</script>
+    <script type="text/javascript">makeRed('example_group_4');</script>
+    <script type="text/javascript">moveProgressBar('42.8');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">Consegue criar um job e retornar status 201?</span>
+      <span class="duration">0.00422s</span>
+      <div class="failure" id="failure_1">
+        <div class="message"><pre>  Failure/Error: post :create, params: {job: {name: &#39;devop&#39;, wage: &#39;4000&#39;},format: :json}
+
+  AbstractController::ActionNotFound:
+    The action &#39;create&#39; could not be found for Api::V1::JobsController
+  # ./spec/controllers/jobs_controller_v1_spec.rb:25:in `block (3 levels) in &lt;top (required)&gt;&#39;</pre></div>
+        <div class="backtrace"><pre>./spec/controllers/jobs_controller_v1_spec.rb:25:in `block (3 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">23</span>  describe 'POST /api/v1/jobs' do
+<span class="linenum">24</span>    it 'Consegue criar um job e retornar status 201?' do
+<span class="offending"><span class="linenum">25</span>      post :create, params: {job: {name: 'devop', wage: '4000'},format: :json}</span>
+<span class="linenum">26</span>      expect(response.body).to include_json(name: 'devop')
+<span class="linenum">27</span>      expect(response).to have_http_status(201)
+<span class="linenum">28</span><span class="comment"># Install the coderay gem to get syntax highlighting</span></code></pre>
+      </div>
+    </dd>
   </dl>
 </div>
 <div id="div_group_5" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_5" class="passed">Testes de preenchimento do model Job</dt>
-    <script type="text/javascript">moveProgressBar('50.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">name consegue ser preenchido?</span><span class='duration'>0.00102s</span></dd>
-    <script type="text/javascript">moveProgressBar('66.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">wage consegue ser preenchido?</span><span class='duration'>0.00087s</span></dd>
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_5" class="passed">Job</dt>
   </dl>
 </div>
 <div id="div_group_6" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_6" class="passed">Testes de validação do model Job</dt>
-    <script type="text/javascript">moveProgressBar('83.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">job valido com campos obrigatorios preenchidos?</span><span class='duration'>0.00111s</span></dd>
-    <script type="text/javascript">moveProgressBar('100.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">job invalido com campos obrigatorios não preenchidos?</span><span class='duration'>0.00195s</span></dd>
+  <dt id="example_group_6" class="passed">Testes de preenchimento do model Job</dt>
+    <script type="text/javascript">moveProgressBar('57.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">name consegue ser preenchido?</span><span class='duration'>0.00119s</span></dd>
+    <script type="text/javascript">moveProgressBar('71.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">wage consegue ser preenchido?</span><span class='duration'>0.00373s</span></dd>
   </dl>
 </div>
-<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>0.07477 seconds</strong>";</script>
-<script type="text/javascript">document.getElementById('totals').innerHTML = "6 examples, 0 failures";</script>
+<div id="div_group_7" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_7" class="passed">Testes de validação do model Job</dt>
+    <script type="text/javascript">moveProgressBar('85.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">job valido com campos obrigatorios preenchidos?</span><span class='duration'>0.00112s</span></dd>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">job invalido com campos obrigatorios não preenchidos?</span><span class='duration'>0.00243s</span></dd>
+  </dl>
+</div>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>0.09619 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "7 examples, 1 failure";</script>
 </div>
 </div>
 </body>

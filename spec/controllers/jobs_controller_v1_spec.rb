@@ -20,4 +20,12 @@ RSpec.describe Api::V1::JobsController, type: :controller do
     end
   end
 
+  describe 'POST /api/v1/jobs' do
+    it 'Consegue criar um job e retornar status 201?' do
+      post :create, params: {job: {name: 'devop', wage: '4000'},format: :json}
+      expect(response.body).to include_json(name: 'devop')
+      expect(response).to have_http_status(201)
+    end
+  end
+
 end
