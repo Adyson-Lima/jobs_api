@@ -18,4 +18,14 @@ RSpec.describe Job, type: :model do
 
   end
 
+  describe 'Testes de validação do model Job' do
+
+    it 'job valido com campos obrigatorios preenchidos?' do
+      @job.name = ''
+      @job.wage = ''
+      expect(@job).to be_valid
+    end
+
+  end
+
 end
